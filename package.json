@@ -1,0 +1,19 @@
+{
+  "name": "spotify-now-playing",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "devDependencies": {
+    "nuxt": "^3.17.5",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10"
+  },
+  "dependencies": {
+    "spotify-web-api-node": "^5.0.2"
+  }
+}
