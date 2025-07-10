@@ -51,6 +51,8 @@ watch(song, (newSong, oldSong) => {
         document.documentElement.style.setProperty('filter', 'gray');
       } else {
         document.documentElement.style.setProperty('--background-image-url', 'none');
+        document.documentElement.style.setProperty('-webkit-filter', 'grayscale(0%)');
+        document.documentElement.style.setProperty('filter', 'none');
       }
     }
 
