@@ -43,15 +43,20 @@ watch(song, (newSong, oldSong) => {
     // Update background image
     if (newSong && newSong.album.images[0].url) {
       document.documentElement.style.setProperty('--background-image-url', `url(${newSong.album.images[0].url})`);
+      // Remove grayscale when a song is playing
+      document.documentElement.style.setProperty('-webkit-filter', 'none');
+      document.documentElement.style.setProperty('filter', 'none');
     } else {
       if (fallbackImages.length > 0) {
         const randomImage = fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
         document.documentElement.style.setProperty('--background-image-url', `url(${randomImage})`);
+        // Apply grayscale when not playing
         document.documentElement.style.setProperty('-webkit-filter', 'grayscale(100%)');
-        document.documentElement.style.setProperty('filter', 'gray');
+        document.documentElement.style.setProperty('filter', 'grayscale(100%)');
       } else {
         document.documentElement.style.setProperty('--background-image-url', 'none');
-        document.documentElement.style.setProperty('-webkit-filter', 'grayscale(0%)');
+        // No background image; keep UI in color
+        document.documentElement.style.setProperty('-webkit-filter', 'none');
         document.documentElement.style.setProperty('filter', 'none');
       }
     }
